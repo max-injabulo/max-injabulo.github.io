@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>Coin Toss</title>
+
+  </head>
+  <body>
+  <!-- Below, this is where i decided to post the outcome of the cointoss -->
+      <h1 id="output"></h1>
+
+    <script type="text/javascript">
+
+  // ask user heads or tails?
+      var userGuess = prompt("heads or tails?");
+
+      //  i used 3 as the default so it's always numerical no
+      // matter what the user enters, to avoid an error
+      var userGuessnum = 3;
+
+      //changes the user guess into a number we can compare to the
+      // results of the cointoss
+      if (userGuess === "heads"){
+        userGuessnum = 0
+      } else if (userGuess === "tails"){
+          userGuessnum = 1
+      } else {
+        }
+
+      // random function generates a random number 0 or 1
+      var coinToss =  Math.floor(Math.random() * 2);
+
+      // creates string variable "result"
+      var result = ""
+
+      // gives a variable with "heads" or "tails" depending on the cointoss
+      // result, to use later in the message to the member
+      if (coinToss == 0){
+        result = "heads"
+      } else {
+        result  = "tails"
+      }
+      // prints the result of the cointoss (heads and tails)so we can verify
+      // that the message is correct
+      console.log(result);
+
+      // Prints the results of the cointoss in a fun message, or "invalid response"
+      // if the user entered an invalid response
+      if (userGuessnum == coinToss){
+        document.getElementById("output").innerHTML = "Flipped coin... and..."+result+"!!! You win!! :-D ";
+      } else if (userGuessnum != coinToss && userGuessnum != 3){
+        document.getElementById("output").innerHTML = "Flipped coin... and..."+result+"!!! You lose :-( ";
+      } else {
+        document.getElementById("output").innerHTML = "Invalid response, try again.";
+      }
+
+    </script>
+
+  </body>
+  </html>
